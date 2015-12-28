@@ -10,6 +10,8 @@ var session = require("client-sessions");
 var userDb = require("./model/users")
 var index = require('./routes/index');
 var wall = require('./routes/wall');
+var authorize = require('./routes/authorize');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -60,10 +62,12 @@ app.use(function (req, res, next) {
     req.auth = false;
     next();
   }
-})
+});
 
 app.use('/', index);
 app.use('/wall',wall);
+app.use('/authorize',authorize);
+app.use('/api',api);
 
 
 // catch 404 and forward to error handler

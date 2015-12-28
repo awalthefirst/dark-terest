@@ -26,13 +26,12 @@ var obj = {
   },
 
  getUserImage:function(query, cb){
-    obj.image().finde({
+    obj.image().find({
       name: query.name
     }, cb);
  },
  
-  addimage: function (query, cb) {
-
+  addImage: function (query, cb) {
     var user = new obj.image()({
       name: query.name,
       src: query.src,
@@ -41,6 +40,13 @@ var obj = {
     user.save(cb);
   },
   
+  removeImage:function(query, cb){
+    obj.image().findOneAndRemove({
+      name: query.name,
+      username:query.username,
+      src:query.src
+    }, cb);
+ }
   
 };
 

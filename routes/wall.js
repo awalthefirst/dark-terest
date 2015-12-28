@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var imageDb = require('../model/images')
+var imageDb = require('../model/images');
+
   /* GET user wall page. */
 router.get('/', function (req, res, next) {
   

@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var imageDb = require('../model/images');
 
-  /* GET home page. */
+/* GET home page. */
 router.get('/', function (req, res, next) {
-  
+
   if (req.auth) {
-      respond();
+    respond();
   }
   else {
-     respond();
+    respond();
   }
 
 
@@ -25,6 +25,12 @@ router.get('/', function (req, res, next) {
     });
   }
 
+});
+
+/*logout*/
+router.get('/logout', function (req, res, next) {
+  req.darkTerest.reset();
+  res.redirect('/');
 });
 
 module.exports = router;
