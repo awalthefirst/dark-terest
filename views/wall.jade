@@ -1,5 +1,30 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  include ./fragments/auth-nav.jade
+  .overlay
+  
+  .container
+    .modals
+      span.glyphicon.glyphicon-remove-circle.btn-lg
+      .innermodal.text-center
+        img()
+      .col-xs-10.col-xs-offset-1.test
+        form
+          input.form-control(type='text', required placeholder='Image Url')
+          input.form-control(type='text', required placeholder='Pin Name')
+          button.btn.btn-info.navbar-btn(type="submit") load preview
+          |   
+          button.btn.btn-primary.navbar-btn(type="submit") Add to you pin
+       
+    
+      
+    .row
+      .col-xs-12.text-center
+        h1 Your Dark-terest wall 
+        button.head.addpin.btn.btn-block.btn-default Add new Dark-terest pin
+    each dat in data
+      .grid
+        img.cover(src=dat.src )
+        .caption
+            p=dat.name

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  include ./fragments/un-auth-nav.jade
+  .container
+    h1.well.well-sm Sign Up
+      if(error !== undefined)
+        small.error  * error: #{error}
+    .col-lg-12.well
+      .row
+        form(method="post" autocomplete="off" action="/auth/signup")
+          .col-sm-12
+            .form-group
+              label Username 
+              input.form-control(type='text', name="username" required placeholder='Enter Username')
+
+            .form-group
+              label Email Address
+              input.form-control(type='email', name="email" required placeholder='Enter Email ')
+       
+            .form-group
+              label Password
+              input.form-control(type='password', name="password" required placeholder='Enter Password')
+           
+            button.btn.btn-lg.btn-info(type='submit') Sign Up

@@ -5,21 +5,25 @@ var imageDb = require('../model/images');
 /* add new image pin. */
 
 router.post('/addpin', function (req, res, next) {
-
+  
   if (req.auth) {
+    
     imageDb.addImage({
       name: req.body.name.toLowerCase(),
-      username: req.body.username.toLowerCase(),
-      src: req.body.src.toLowerCase()
-    }, function (err) {
+      username: req.user.username,
+      src: req.body.src
+    }, function (err,data) {
+      
       if (!err) {
+        
         res.end();
       }
-
+ 
     });
 
   }
   else {
+   
     return res.sendStatus(401)
   }
 
@@ -31,8 +35,8 @@ router.delete('/addpin', function (req, res, next) {
 
     imageDb.removeImage({
       name: req.body.name.toLowerCase(),
-      username: req.body.username.toLowerCase(),
-      src: req.body.src.toLowerCase()
+      username: req.user.username,
+      src: req.body.src
     }, function (err) {
       if (!err) {
         res.end();

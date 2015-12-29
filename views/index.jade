@@ -1,5 +1,24 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  if auth
+    include ./fragments/auth-nav.jade
+  else
+    include ./fragments/un-auth-nav.jade
+  
+  .container
+    .row
+      .col-xs-12.text-center
+        h1.head Dark theme Pinterest styled Pins
+        h6 recent pins
+    
+    each dat in data
+      .grid
+        img.cover(src=dat.src )
+        .caption
+            p=dat.name
+    .clearfix
+    div.foot.text-center: a(href="") fcc@awalthefirst 
+    
+            
+          

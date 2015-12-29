@@ -8,6 +8,7 @@ var imageSchema = Schema({
   },
   src: {
     type: String,
+    required: true
   },
   username: {
     type: String,
@@ -27,7 +28,7 @@ var obj = {
 
  getUserImage:function(query, cb){
     obj.image().find({
-      name: query.name
+      username: query.username
     }, cb);
  },
  

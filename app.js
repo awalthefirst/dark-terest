@@ -36,9 +36,8 @@ app.use(session({
 app.use(function (req, res, next) {
   
   if (req.darkTerest && req.darkTerest.user) {
-
+  
     userDb.findUser({
-      username:req.darkTerest.user.email,
       email: req.darkTerest.user.email
     }, function (err, data) {
 
@@ -53,6 +52,7 @@ app.use(function (req, res, next) {
       else {
         req.darkTerest.reset();
         req.auth = false;
+        req.user = {};
         next();
       }
     })
@@ -60,13 +60,14 @@ app.use(function (req, res, next) {
   else {
     req.darkTerest.reset();
     req.auth = false;
+    req.user = {};
     next();
   }
 });
 
 app.use('/', index);
 app.use('/wall',wall);
-app.use('/authorize',authorize);
+app.use('/auth',authorize);
 app.use('/api',api);
 
 

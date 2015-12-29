@@ -26,9 +26,8 @@ var obj = {
 
   findUser: function (query, cb) {
     obj.getUser().findOne({
-      email: query.email,
-      username:query.username
-    }, cb);
+      email: query.email
+      }, cb);
   },
 
   addUser: function (query, cb) {

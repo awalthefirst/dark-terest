@@ -12,14 +12,15 @@ router.get('/', function (req, res, next) {
     respond();
   }
 
-
   function respond() {
+    
     imageDb.getAllimage({}, function (err, data) {
       if (!err) {
         res.render('index', {
           title: 'Dark-terest',
           auth: req.auth,
-          data: data || []
+          data: data || [],
+          username: req.user.username
         });
       }
     });
