@@ -3,6 +3,17 @@ nav {
   -webkit-transition: opacity 1s ease;
   transition: opacity 1s ease;
   z-index: 5;
+  font-family: 'Calligraffitti', cursive;
+  font-size:25px;
+  background:#161616 !important;
+}
+.navbar-brand{
+  font-size:30px;
+}
+.head{
+  font-family: 'Calligraffitti', cursive;
+  font-size:45px;
+  color:#33e;
 }
 
 html,
@@ -11,10 +22,11 @@ body {
 }
 
 body {
+  color: #333;
   position: relative;
   padding-top: 70px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #E9E9E9;
+  background: #161616;
 }
 
 .error {
@@ -22,6 +34,8 @@ body {
 }
 
 .grid {
+  box-shadow: 1px 1px 3px #1B1918;
+  border-radius: 10px;
   width: 200px;
   float: left;
   margin: 10px;
@@ -47,10 +61,10 @@ body {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
-  /*display: hidden;*/
+  display: none;
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
@@ -59,7 +73,6 @@ body {
 
 .modals {
   box-sizing: border-box;
-  /* padding:100px;*/
   width: 400px;
   height: 400px;
   position: fixed;
@@ -71,24 +84,26 @@ body {
   border-radius: 5px;
   text-align: center;
   z-index: 9999;
+  display: none;
 }
 
 .innermodal {
   width: 200px;
   height: 200px;
-  margin:10px auto;
-  border-radius:10px;
-  background-color:rgba(0, 0, 0, 0.5);
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .innermodal img {
-  border-radius:10px;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
 }
 
-.glyphicon-remove-circle{
-  position:absolute;
-  right:0px;
-  bottom:0;
+.glyphicon-remove-circle {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  cursor: pointer;
 }

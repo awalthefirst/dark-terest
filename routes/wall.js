@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
         res.render('wall', {
           title: 'Dark-wall',
           auth:req.auth,
-          data: data || [],
+          data: data.reverse() || [],
           username:req.user.username
         });
 

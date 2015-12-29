@@ -3,28 +3,26 @@ extends layout
 block content
   include ./fragments/auth-nav.jade
   .overlay
-  
-  .container
-    .modals
+  .modals
       span.glyphicon.glyphicon-remove-circle.btn-lg
       .innermodal.text-center
-        img()
+        img.innerimage
       .col-xs-10.col-xs-offset-1.test
         form
-          input.form-control(type='text', required placeholder='Image Url')
-          input.form-control(type='text', required placeholder='Pin Name')
-          button.btn.btn-info.navbar-btn(type="submit") load preview
+          input.url.form-control(type='text', required placeholder='Image Url')
+          input.imagename.form-control(type='text', required placeholder='Pin Name')
+          button.btn.btn-info.preload.navbar-btn(type="submit") load preview
           |   
-          button.btn.btn-primary.navbar-btn(type="submit") Add to you pin
-       
-    
-      
+          button.btn.btn-primary.navbar-btn.addpin(type="submit") Add to you pin
+  .container
     .row
       .col-xs-12.text-center
-        h1 Your Dark-terest wall 
-        button.head.addpin.btn.btn-block.btn-default Add new Dark-terest pin
-    each dat in data
-      .grid
-        img.cover(src=dat.src )
-        .caption
-            p=dat.name
+        h1.head Your Dark-terest wall 
+        button.showpin.btn.btn-block.btn-default Add new Dark-terest pin
+    .cont
+      each dat in data
+        .grid
+          img.cover(src=dat.src)
+          .caption
+            p(style="word-wrap: break-word") #{dat.name}
+            button.btn.btn-danger.delete(id=dat.name) Delete

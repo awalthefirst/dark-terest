@@ -10,15 +10,17 @@ block content
     .row
       .col-xs-12.text-center
         h1.head Dark theme Pinterest styled Pins
-        h6 recent pins
-    
-    each dat in data
-      .grid
-        img.cover(src=dat.src )
-        .caption
-            p=dat.name
+    .cont 
+      each dat in data
+        .grid
+          img.cover(src=dat.src onError="this.onerror=null;this.src='http://placehold.it/200x300';")
+          .caption
+              p(style="word-wrap: break-word") #{dat.name}
     .clearfix
-    div.foot.text-center: a(href="") fcc@awalthefirst 
+    div.foot.text-center
+      a(href="http://www.freecodecamp.com/awalthefirst" target="_blank") fcc@awalthefirst  
+      p |
+      a(href="https://twitter.com/awwalthefirst" target="_blank") twitter
     
             
           

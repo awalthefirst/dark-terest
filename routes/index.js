@@ -5,26 +5,16 @@ var imageDb = require('../model/images');
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  if (req.auth) {
-    respond();
-  }
-  else {
-    respond();
-  }
-
-  function respond() {
-    
-    imageDb.getAllimage({}, function (err, data) {
-      if (!err) {
-        res.render('index', {
-          title: 'Dark-terest',
-          auth: req.auth,
-          data: data || [],
-          username: req.user.username
-        });
-      }
-    });
-  }
+  imageDb.getAllimage({}, function (err, data) {
+    if (!err) {
+      res.render('index', {
+        title: 'Dark-terest',
+        auth: req.auth,
+        data: data.reverse() || [],
+        username: req.user.username
+      });
+    }
+  });
 
 });
 

@@ -15,21 +15,19 @@ router.post('/addpin', function (req, res, next) {
     }, function (err,data) {
       
       if (!err) {
-        
         res.end();
       }
- 
     });
 
   }
   else {
    
-    return res.sendStatus(401)
+    return res.sendStatus(401);
   }
 
 });
 
-router.delete('/addpin', function (req, res, next) {
+router.delete('/rmpin', function (req, res, next) {
 
   if (req.auth) {
 
